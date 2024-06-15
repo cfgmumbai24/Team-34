@@ -23,7 +23,7 @@ const Courses = () => {
     <div className="courses-container">
       {courses.map((course) => (
         <div className="course-item" key={course.course_id}>
-          <YoutubeEmbed embedId={course.video1} desc={course.disc1} />
+          <YoutubeEmbed embedId={course.video3} desc={course.disc3} />
         </div>
       ))}
     </div>
