@@ -15,28 +15,58 @@ import Geography from "./scenes/geography";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
+import axios from "axios";
+import { useEffect } from "react";
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
+  const [error, setError] = useState(null);
+  const [res, setRes] = useState([]);
+  const [mentor, setMentor] = useState(null);
+  const studentId = 2;
+
+
+  useEffect(() => {
+    const fetchStudentDetails = async () => {
+      axios
+        .get(
+          "http://192.168.43.21:3000/student/2", //proxy uri
+          {
+            headers: {
+              "Content-Type": "application/json",
+              'Access-Control-Allow-Origin' : '*'
+            },
+          }
+        )
+        .then(function (response) {
+
+          // console.log(response.data[0].attendance);
+          setRes(response.data[0]);
+        });
+    };
+
+    fetchStudentDetails();
+  }, []);
 
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-          <Sidebar isSidebar={isSidebar} />
+          <Sidebar isSidebar={isSidebar} props={res}/>
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
-              <Route path="/" element={<Dashboard />} />
+              <Route path="/" element={<Dashboard props={res}/>} />
               <Route path="/team" element={<Team />} />
               <Route path="/contacts" element={<Contacts />} />
               <Route path="/invoices" element={<Invoices />} />
               <Route path="/form" element={<Form />} />
               <Route path="/bar" element={<Bar />} />
-              <Route path="/pie" element={<Pie />} />
-              <Route path="/line" element={<Line />} />
+              <Route path="/pie" element={<Pie props={res.attendance}/>} />
+              <Route path="/line" element={<Bar/>} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/geography" element={<Geography />} />

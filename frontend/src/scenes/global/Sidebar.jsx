@@ -16,6 +16,7 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import { BookOnlineOutlined } from "@mui/icons-material";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -35,12 +36,13 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
-const Sidebar = () => {
+const Sidebar = ({props}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
-
+  const role=(props.type);
+  let name=(props.name);
   return (
     <Box
       sx={{
@@ -79,10 +81,10 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                /** role **/
+                
                 <Typography variant="h3" color={colors.grey[100]}>
                   
-                  Student 
+                  {role}
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
@@ -93,15 +95,7 @@ const Sidebar = () => {
 
           {!isCollapsed && (
             <Box mb="25px">
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <img
-                  alt="profile-user"
-                  width="100px"
-                  height="100px"
-                  src={`../../assets/user.png`}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
-              </Box>
+              
               <Box textAlign="center">
                 <Typography
                   variant="h2"
@@ -109,7 +103,7 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Name
+                 {props.student_name}
                 </Typography>
                 {/* <Typography variant="h5" color={colors.greenAccent[500]}>
                   VP Fancy Admin
@@ -151,6 +145,13 @@ const Sidebar = () => {
             <Item
               title="Scholarships"
               to="/scholarships"
+              icon={<BookOnlineOutlined />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Courses"
+              to="/courses"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
