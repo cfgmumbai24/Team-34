@@ -17,6 +17,7 @@ import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
 import axios from "axios";
 import { useEffect } from "react";
+import Courses from "./components/Courses";
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
               <Route path="/faq" element={<FAQ />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/geography" element={<Geography />} />
+              <Route path="/courses" element={<Courses />} /> 
             </Routes>
           </main>
         </div>
