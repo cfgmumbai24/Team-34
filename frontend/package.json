@@ -1,8 +1,7 @@
 {
-<<<<<<< HEAD
   "devDependencies": {
     "tailwindcss": "^3.4.4"
-=======
+  },
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
@@ -38,6 +37,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
->>>>>>> 4dae3350376dc69b780e6d166a81f3c43bc6ecca
   }
 }
