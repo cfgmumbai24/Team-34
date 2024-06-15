@@ -4,6 +4,7 @@ import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import Icon from "@mui/icons-material/Email";
 import PhoneIcon from '@mui/icons-material/Phone';
+import BookIcon from '@mui/icons-material/Book';
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import TrafficIcon from "@mui/icons-material/Traffic";
@@ -14,41 +15,16 @@ import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import HorizontalLinearStepper from "../progress_track/HorizontalLinearStepper";
+import { useEffect, useState } from "react";
+import PieChart from "../../components/PieChart";
 
-const axios = require('axios');
-const studentId=2;
-// const MentorDetails = () => {
-//   const [mentor, setMentor] = useState(null);
-//   const [error, setError] = useState(null);
 
-//   useEffect(() => {
-//     const fetchMentorDetails = async () => {
-//       try {
-//         const response = await axios.get(`http://localhost:3000/student/${studentId}`);
-//         // setMentor(response.data.mentor);
-//         console.log(response.data);
-//       } catch (error) {
-//         if (error.response) {
-//           // Server responded with a status other than 200 range
-//           setError(error.response.data.message);
-//         } else if (error.request) {
-//           // Request was made but no response received
-//           setError('No response received from the server.');
-//         } else {
-//           // Other errors
-//           setError(error.message);
-//         }
-//       }
-//     };
-
-//     fetchMentorDetails();
-//   }, []);
-// };
-
-const Dashboard = () => {
+const Dashboard = ({props}) => {
   const theme = useTheme();
+  
   const colors = tokens(theme.palette.mode);
-
+  
+  
   return (
     <Box m="20px">
       {/* HEADER */}
@@ -86,23 +62,20 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
         >
-          {/* <StatBox
-            title="12,361"
-            subtitle="Emails Sent"
-            progress="0.75"
-            increase="+14%"
-            icon={
-              <EmailIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-              
-            }
-          /> */}
-          <PhoneIcon
+          
+              <div className="flex">
+              <PhoneIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
               <div>Mentor information</div>
-              <div></div>          
+              <div>
+              <div>{props.mentor_name}</div>  
+              <div>{props.mentor_phone}</div>
+              </div>
+              </div>
+              
+             
+
         </Box>
         <Box
           gridColumn="span 3"
@@ -111,17 +84,19 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <StatBox
-            title="431,225"
-            subtitle="Sales Obtained"
-            progress="0.50"
-            increase="+21%"
-            icon={
-              <PointOfSaleIcon
+            <div className="flex">
+              <BookIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
-            }
-          />
+              <div>Attendance</div>
+              <div>
+              <div>{props.attendance}%</div>  
+
+              {/* // if attendance is less than 50% then color red */}
+              </div>
+              </div>
+              
+          
         </Box>
         <Box
           gridColumn="span 3"
@@ -130,17 +105,17 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <StatBox
-            title="32,441"
-            subtitle="New Clients"
-            progress="0.30"
-            increase="+5%"
-            icon={
-              <PersonAddIcon
+          <div className="flex">
+              <BookIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
-            }
-          />
+              <div>Course</div>
+              <div>
+              <div>{props.course_name}</div>  
+
+        
+              </div>
+              </div>
         </Box>
         <Box
           gridColumn="span 3"
@@ -149,17 +124,17 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <StatBox
-            title="1,325,134"
-            subtitle="Traffic Received"
-            progress="0.80"
-            increase="+43%"
-            icon={
-              <TrafficIcon
+          <div className="flex">
+              <BookIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
-            }
-          />
+              <div>Quiz</div>
+              <div>
+              <div>{props.student_quiz_no}/5</div>  
+
+        
+              </div>
+              </div>
         </Box>
 
         {/* ROW 2 */}
@@ -175,7 +150,7 @@ const Dashboard = () => {
             borderBottom={`4px solid ${colors.primary[500]}`}
             colors={colors.grey[100]}
             p="15px"
-            mx ="400px"
+            mx="528px"
           >
             <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
               Progress Tracker
@@ -184,7 +159,7 @@ const Dashboard = () => {
           
           
           <Box height="0px" m="20px 0 0 0">
-            <HorizontalLinearStepper/>
+            <HorizontalLinearStepper props={props.phase}/>
             
           </Box>
         </Box>
@@ -198,24 +173,9 @@ const Dashboard = () => {
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
-            Campaign
+            Attendance
           </Typography>
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            mt="25px"
-          >
-            <ProgressCircle size="125" />
-            <Typography
-              variant="h5"
-              color={colors.greenAccent[500]}
-              sx={{ mt: "15px" }}
-            >
-              $48,352 revenue generated
-            </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
-          </Box>
+          <PieChart props={props.attendance}/>
         </Box>
         <Box
           gridColumn="span 8"

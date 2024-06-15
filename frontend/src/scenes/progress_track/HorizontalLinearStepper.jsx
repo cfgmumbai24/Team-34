@@ -15,8 +15,8 @@ const steps = [
   'Expecting graduation from college',
 ];
 
-export default function HorizontalLinearStepper() {
-  const [activeStep, setActiveStep] = React.useState(1);
+export default function HorizontalLinearStepper({props}) {
+  const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
   const isStepOptional = (step) => {
@@ -27,40 +27,6 @@ export default function HorizontalLinearStepper() {
     return skipped.has(step);
   };
 
-  const handleNext = () => {
-    let newSkipped = skipped;
-    if (isStepSkipped(activeStep)) {
-      newSkipped = new Set(newSkipped.values());
-      newSkipped.delete(activeStep);
-    }
-
-    if (activeStep === 1) {
-      setActiveStep(2); // Set activeStep directly to 2 instead of increasing
-    } else {
-      setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    }
-
-    setSkipped(newSkipped);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleSkip = () => {
-    if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
-      throw new Error("You can't skip a step that isn't optional.");
-    }
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped((prevSkipped) => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
-  };
 
   const handleReset = () => {
     setActiveStep(0);
@@ -68,7 +34,7 @@ export default function HorizontalLinearStepper() {
 
   return (
     <Box sx={{ width: '100%', color: '#4cceac', p: 3 }}>
-      <Stepper activeStep={activeStep}>
+      <Stepper activeStep={props}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
