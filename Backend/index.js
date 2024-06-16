@@ -148,10 +148,15 @@ app.get("/courses",async(req,res)=>{
 });
 
 app.get("/scholorships",async(req,res)=>{
-  console.log("hi");
   const data= await db.query("Select * from scholarship");
   res.json(data.rows);
 });
+
+app.get("/mentors",async(req,res)=>{
+  const data= await db.query("Select * from mentors");
+  res.json(data.rows);
+});
+
 
 // app.get('*', (req, res) => {
 //   // res.sendFile(path.join(__dirname, '../../frontend/build', 'index.html'));
