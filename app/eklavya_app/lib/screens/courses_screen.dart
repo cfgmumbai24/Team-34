@@ -28,9 +28,28 @@ class _CoursesScreenState extends State<CoursesScreen> {
     Map<String, List<Map<String, String>>> allVideos = {
       'Maths': [
         {
-          'url': 'https://www.youtube.com/watch?v=1',
-          'name': 'Math Video 1',
+          'url':
+              'https://www.youtube.com/watch?v=Ul2ketJEBv0&list=PLR96LVvtesrHVH1GgsSqx0jwWLJm1If1O',
+          'name': 'Algebra',
           'description': 'Description for Math Video 1'
+        },
+        {
+          'url':
+              'https://www.youtube.com/watch?v=fgw8iOsIROM&list=PLCtUyOrCJbxxkRuQ_rge8TxeIiuOS9DhF',
+          'name': 'Calculus',
+          'description': 'Description for Math Video 1'
+        },
+        {
+          'url':
+              'https://www.youtube.com/watch?v=nbdkURzO13U&list=PLYVDsiuOZP5okVjaOFGuRkLT51-WgG95_',
+          'name': 'Geometry',
+          'description': 'Description for Math Video 3'
+        },
+        {
+          'url':
+              'https://www.youtube.com/watch?v=Iv-c7TPG9Iw&list=PLK1B9QWGI6Fh24ucqHWwtdltSGh4aoqbu&index=10',
+          'name': 'Number Theory',
+          'description': 'Description for Math Video 4'
         },
         // Add 9 more videos
       ],
