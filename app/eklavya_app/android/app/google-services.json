@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "204384438376",
+    "project_id": "eklavya-app",
+    "storage_bucket": "eklavya-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204384438376:android:69ed29c9cf490b0b9113dd",
+        "android_client_info": {
+          "package_name": "com.eklavya.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": ""
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
