@@ -193,9 +193,152 @@ const Dashboard = ({props}) => {
             <BarChart isDashboard={true} />
           </Box>
         </Box>
-        
+        <Box>
+            <Typography
+              color={colors.grey[100]}
+              variant="h3"
+              fontWeight="600"
+              p="8px"
+            >
+             OPPORTUNITIES
+            </Typography>
+          </Box>
+        </Box>
+
+       <Box
+          gridColumn="span 4"
+          gridRow="span 3"
+          backgroundColor={colors.primary[400]}
+          overflow="auto"
+          marginBottom="50px"
+        >
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            colors={colors.grey[100]}
+            p="15px"
+          >
+            <Typography
+              color={colors.greenAccent[600]}
+              variant="h5"
+              fontWeight="600"
+            >
+              Top Medical colleges
+            </Typography>
+          </Box>
+          {Medical.map((med, i) => (
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              // gap="25px"
+              alignItems="center"
+              p="15px"
+            >
+              <Box width="170px">
+                <Typography>{med.name}</Typography>
+              </Box>
+              <Box color={colors.grey[100]}>{med.entrance_test}</Box>
+              <Box
+                backgroundColor={colors.greenAccent[500]}
+                p="5px 10px"
+                borderRadius="4px"
+              >
+                view
+              </Box>
+            </Box>
+          ))}
+        </Box>
+
+        <Box
+          gridColumn="span 4"
+          gridRow="span 3"
+          backgroundColor={colors.primary[400]}
+          overflow="auto"
+          marginBottom="50px"
+        >
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            colors={colors.grey[100]}
+            p="15px"
+          >
+            <Typography
+              color={colors.greenAccent[600]}
+              variant="h5"
+              fontWeight="600"
+            >
+              Top Medical colleges
+            </Typography>
+          </Box>
+          {Medical.map((med, i) => (
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              // gap="25px"
+              alignItems="center"
+              p="15px"
+            >
+              <Box width="170px">
+                <Typography>{med.name}</Typography>
+              </Box>
+              <Box color={colors.grey[100]}>{med.entrance_test}</Box>
+              <Box
+                backgroundColor={colors.greenAccent[500]}
+                p="5px 10px"
+                borderRadius="4px"
+              >
+                view
+              </Box>
+            </Box>
+          ))}
+        </Box>
+        <Box
+          gridColumn="span 4"
+          gridRow="span 3"
+          backgroundColor={colors.primary[400]}
+          overflow="auto"
+          marginBottom="50px"
+        >
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            colors={colors.grey[100]}
+            p="15px"
+          >
+            <Typography
+              color={colors.greenAccent[600]}
+              variant="h5"
+              fontWeight="600"
+            >
+              Top Law meds
+            </Typography>
+          </Box>
+          {colleges.map((college, i) => (
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              // gap="25px"
+              alignItems="center"
+              p="15px"
+            >
+              <Box width="170px">
+                <Typography>{college.name}</Typography>
+              </Box>
+              <Box color={colors.grey[100]}>{college.entrance_test}</Box>
+              <Box
+                backgroundColor={colors.greenAccent[500]}
+                p="5px 10px"
+                borderRadius="4px"
+              >
+                view
+              </Box>
+            </Box>
+          ))}
+        </Box>
       </Box>
-    </Box>
   );
 };
 
