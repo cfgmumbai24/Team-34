@@ -148,7 +148,7 @@ app.get("/courses",async(req,res)=>{
 });
 
 app.get("/scholorships",async(req,res)=>{
-  const data= await db.query("Select * from scholorship");
+  const data= await db.query("Select * from scholarship");
   res.json(data.rows);
 });
 
