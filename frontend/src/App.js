@@ -19,7 +19,8 @@ import Calendar from "./scenes/calendar/calendar";
 import axios from "axios";
 import { useEffect } from "react";
 import Courses from "./components/Courses";
-axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+import Home from "./components/Home";
+// axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -61,7 +62,7 @@ function App() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
-              <Route path="/" element={<Home/>}/>
+              <Route path="/" element={<Home/>} />
               <Route path="/dashboard" element={<Dashboard props={res}/>} />
               <Route path="/team" element={<Team />} />
               <Route path="/contacts" element={<Contacts />} />
