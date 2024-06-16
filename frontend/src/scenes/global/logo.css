@@ -1,0 +1,23 @@
+.logo{
+    height: 54px;
+    width:196px;
+}
+.nav{
+    display:flex ;
+    justify-content: space-between ;
+    padding:17px;
+    align-items: center;
+    gap:50px;
+}
+.subnav{
+    display:flex ;
+    justify-content: space-between ;
+    padding:2px;
+    align-items: center;
+    gap:50px
+}
+.links:hover{
+    cursor: pointer;
+    font-weight: 700;
+    border-bottom: 2px solid black;
+}
