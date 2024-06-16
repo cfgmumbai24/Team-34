@@ -9,7 +9,7 @@ function Home() {
     <div>
       <Topbar/>
       <CarouselComponent/>
-      <Dashboard/>
+      {/* <Dashboard /> */}
     </div>
   )
 }

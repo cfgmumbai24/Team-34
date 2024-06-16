@@ -19,7 +19,7 @@ import Calendar from "./scenes/calendar/calendar";
 import axios from "axios";
 import { useEffect } from "react";
 import Courses from "./components/Courses";
-import Home from "./components/Home";
+
 // axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
 function App() {

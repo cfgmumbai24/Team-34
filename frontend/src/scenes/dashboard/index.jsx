@@ -27,11 +27,11 @@ const Dashboard = ({props}) => {
   
   
   return (
+   
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-
         <Box>
           <Button
             sx={{
@@ -159,7 +159,7 @@ const Dashboard = ({props}) => {
           </Box>
           
           
-          <Box height="0px" m="20px 0 0 0">
+          <Box height="40px" m="20px 0 0 0">
             <HorizontalLinearStepper props={props.phase}/>
             
           </Box>
