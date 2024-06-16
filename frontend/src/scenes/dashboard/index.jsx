@@ -173,7 +173,7 @@ const Dashboard = ({props}) => {
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
-            Attendance
+            Attendance for last 3 months
           </Typography>
           <PieChart props={props.attendance}/>
         </Box>

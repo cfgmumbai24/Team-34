@@ -34,7 +34,7 @@ export default function HorizontalLinearStepper({props}) {
 
   return (
     <Box sx={{ width: '100%', color: '#4cceac', p: 3 }}>
-      <Stepper activeStep={props}>
+      <Stepper activeStep={props.phase}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
