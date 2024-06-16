@@ -17,6 +17,7 @@ import ProgressCircle from "../../components/ProgressCircle";
 import HorizontalLinearStepper from "../progress_track/HorizontalLinearStepper";
 import { useEffect, useState } from "react";
 import PieChart from "../../components/PieChart";
+import {Medical,colleges} from "../../data/mockData";
 
 
 const Dashboard = ({props}) => {
